@@ -1,0 +1,19 @@
+PAYMENT FAILURE KNOWLEDGE
+
+Network Error:
+A network error can occur when the connection between the payment application, payment gateway, bank, or customer device is interrupted. Merchants can check whether the issue is temporary and monitor whether failures are concentrated during a particular period.
+
+Bank Declined:
+A bank may decline a payment because the transaction was rejected by the customer's bank. Possible reasons can include bank-side restrictions, transaction limits, account restrictions, or other authorization issues. The merchant should provide the customer with the appropriate retry or support guidance.
+
+Insufficient Balance:
+A payment can fail when the customer's account does not have sufficient available balance to complete the transaction. The customer may need to use another payment method or add sufficient funds.
+
+Bank Server:
+Bank server problems can temporarily prevent transactions from being authorized or completed. Merchants should monitor whether multiple failures occur around the same time and check whether the issue continues.
+
+Pending Payment:
+A pending payment means the transaction has not yet reached a final success or failure state. The merchant should avoid treating a pending transaction as successful until its final status is confirmed.
+
+Payment Failure Analysis:
+Merchants should monitor failure counts, failure reasons, payment methods, and time periods. A high concentration of failures from one reason or payment method can indicate an operational issue that requires investigation.
