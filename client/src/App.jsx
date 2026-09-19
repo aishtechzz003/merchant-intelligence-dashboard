@@ -2,6 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import StatCard from "./components/StatCard";
 
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 function App() {
   const [activePage, setActivePage] = useState("Overview");
 
@@ -20,7 +23,7 @@ const [aiMessages, setAiMessages] = useState([
 ]);
 const handleAiSubmit = async () => {
   if (!aiInput.trim()) return;
-
+`${API_URL}/api/ai?question=${encodeURIComponent(question)}`
   const question = aiInput;
 
   // Show user's message
@@ -37,8 +40,7 @@ const handleAiSubmit = async () => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/ai?question=${encodeURIComponent(question)}`
-    );
+`${API_URL}/api/ai?question=${encodeURIComponent(question)}`    );
 
     const data = await response.json();
 
@@ -85,7 +87,7 @@ const handleAiSubmit = async () => {
   // =========================================================
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/transactions")
+    fetch(`${API_URL}/api/transactions`)
       .then((response) => response.json())
       .then((data) => {
         const formattedTransactions = data.map((transaction) => ({
@@ -111,8 +113,7 @@ const handleAiSubmit = async () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/api/analytics?period=${encodeURIComponent(
-        dashboardPeriod
+`${API_URL}/api/analytics?period=${encodeURIComponent(        dashboardPeriod
       )}`
     )
       .then((response) => response.json())
@@ -130,8 +131,7 @@ const handleAiSubmit = async () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/api/revenue?period=${encodeURIComponent(period)}`
-    )
+`${API_URL}/api/revenue?period=${encodeURIComponent(period)}`    )
       .then((response) => response.json())
       .then((data) => {
         setRevenue(data);
